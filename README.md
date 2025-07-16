@@ -19,17 +19,17 @@ Today, I decided to try a SOC Analyst lab focused on simulating a real-world inc
   
 ### Before we begin
 
-Navigate to https://cyberdefenders.org/blueteam-ctf-challenges/hammered/, download the lab zip file and extract it on your device.
+Navigate to https://cyberdefenders.org/blueteam-ctf-challenges/hammered/, download the lab zip file and extract it on your device. Then, open the lab folder in the terminal.
 
 ![alt text](OpenInTerminal.jpg)
-
-We can now open the lab directory in our terminal.
 
 Lets log in!
 
 ![alt text](wsllogin.jpg)
 
 Note that I used Windows Subsystem for Linux for this lab, but it is completely possible to do this with a virtual machine too.
+
+
 
 ![alt text](DirectoryLS.jpg)
 
