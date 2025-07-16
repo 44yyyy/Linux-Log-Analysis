@@ -23,21 +23,21 @@ Navigate to https://cyberdefenders.org/blueteam-ctf-challenges/hammered/, downlo
 
 ![alt text](OpenInTerminal.jpg)
 
-Lets log in!
+Lets log in! We should be in the same directory as we were before.
 
 ![alt text](wsllogin.jpg)
 
 Note that I used Windows Subsystem for Linux for this lab, but it is completely possible to do this with a virtual machine too.
 
-
+Let's run ls -la to see all the information in our directory.
 
 ![alt text](DirectoryLS.jpg)
 
-We're in the directory! Let's run ls -la to see all the information in our directory. Now we're ready to begin.
+Now we're ready to begin!
 
 ### Questions
 
-## Question 1
+## Question 1: Which service did the attackers use to gain access to the system?
 
 
 
