@@ -67,7 +67,7 @@ To tackle this question we would need to go back to auth.log.
 
 I used the same command from before, `cat auth.log | grep -i accepted`, but I just wanted to clear up some things on the output, so I used another pipe to chain `awk '{print $1, $2, $9, $11}'`
 
-This only shows the information from those columns, so I narrowed down the output to the month, date, user, and IP address, which I determined were key information.
+This only shows the information from the columns associated with the numbers, so I narrowed down the output to the month, date, user, and IP address, which I determined were key information.
 
 ![alt text](FirstExternalIP.jpg)
 
@@ -96,6 +96,8 @@ Based on this information, we can finally deduct that the IP address from Shangh
 Answer: **root**
 
 ### Question 4: How many attackers, represented by unique IP addresses, were able to successfully access the system after initial failed attempts?
+
+First, I assumed that this question 
 
 
 
