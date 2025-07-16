@@ -95,9 +95,31 @@ Based on this information, we can finally deduct that the IP address from Shangh
 
 Answer: **root**
 
-### Question 4: How many attackers, represented by unique IP addresses, were able to successfully access the system after initial failed attempts?
+### Question 4: How many attackers, represented by unique IP addresses, were able to successfully access the system?
 
-First, I assumed that this question 
+We can assume that the account that we are dealing with is root, since we identified it as the compromised account from the last question.
+
+Again, we grep the auth.log for accepted, but I narrowed the output down further by only asking for the IP address column.
+
+![alt text](GainedAccessIPs.jpg)
+
+From here, we can simply take the information from last time and only output the results that are unique.
+
+![alt text](UniqueRootIPs.jpg)
+
+We don't want to count all of those individually, lets just add a `wc -l` to our command.
+
+![alt text](wc.jpg)
+
+We can see that the root account has been successfully accessed 18 times.
+
+Answer: **18**
+
+### Question 5: Which attacker's IP address successfully logged into the system the most number of times?
+
+To figure this out, we start from what we previously had, but count the IP add
+
+
 
 
 
