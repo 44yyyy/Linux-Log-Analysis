@@ -117,7 +117,66 @@ Answer: **18**
 
 ### Question 5: Which attacker's IP address successfully logged into the system the most number of times?
 
-To figure this out, we start from what we previously had, but count the IP add
+To figure this out, we start from what we previously had, but bundle up and count the IP addresses instead. We can use `uniq -c` for this, and further sort the occurences from greatest to least by piping the command with `sort -nr`.
+
+![alt text](MostFrequentIP.jpg)
+
+We see that the same IP address from Shanghai, 219.150.161.20, has successfully accessed root the most amount of times.
+
+Answer: **219.150.161.20**
+
+### Question 6: How many requests were sent to the Apache Server?
+
+Here, we want to cd over to our apache2 directory, then cat www-access.log, since that is where requests are logged.
+
+![alt text](apache2.jpg)
+
+From here, we can simply count up all of the results from the output that we have.
+
+![alt text](apache2count.jpg)
+
+We see that the server has been requested 365 times.
+
+Answer: **365**
+
+### Question 7: How many rules have been added to the firewall?
+
+I was not entirely sure where to find specific information about firewall rules in logs, but I knew that firewall rules can be configured using a command called iptables.
+
+From this, I decided to grep for iptables on the entire directory using `*` at the end to search every log file and `-r` to recursively search so that other directories can be searched too.
+
+![alt text](iptables.jpg)
+
+We can see that a total of 6 firewall rules have been added to the firewall.
+
+Answer: **6**
+
+### Question 8: One of the downloaded files on the target system is a scanning tool. What is the name of the tool?
+
+We can see all the packages that are installed on dpkg.log.
+
+Lets cat the log file and see if anything is suspicious.
+
+![alt text](dpkg.jpg)
+
+Scroling through the output, we find nmap!
+
+![alt text](nmap.jpg)
+
+Answer: **nmap**
+
+### Question 9: When was the last login from the attacker with IP 219.150.161.20? Format: MM/DD/YYYY HH:MM:SS AM
+
+To answer this question, we need to go back to auth.log.
+
+We can grep for "accepted" again, but this time, also grep the specific IP address 219.150.161.20.
+
+![alt text](lastdate.jpg)
+
+We see that the last login from the attacker was on Apr 19 05:56:05. 
+
+
+
 
 
 
