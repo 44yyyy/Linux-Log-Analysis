@@ -16,6 +16,7 @@ Today, I decided to try a SOC Analyst lab focused on simulating a real-world inc
 ### Tools Used
 
 - Windows Subsystem for Linux (Ubuntu)
+- Linux CLI commands & tools
 - Open-Source Intelligence (OSINT)
   
 ## Before we begin
