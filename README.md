@@ -17,7 +17,7 @@ Today, I decided to try a SOC Analyst lab focused on simulating a real-world inc
 - Linux command-line commands & tools
 - Open-source intelligence (OSINT)
   
-### Before we begin
+## Before we begin
 
 Navigate to https://cyberdefenders.org/blueteam-ctf-challenges/hammered/, download the lab zip file and extract it on your device. Then, open the lab folder in the terminal.
 
@@ -35,9 +35,9 @@ Let's run ls -la to see all the information in our directory.
 
 Now we're ready to begin!
 
-### Questions
+## Questions
 
-## Question 1: Which service did the attackers use to gain access to the system?
+### Question 1: Which service did the attackers use to gain access to the system?
 
 
 
