@@ -1,4 +1,4 @@
-# Linux-Log-Analysis
+# Linux Log Analysis Lab - John Yang
 
 ## Objective
 
@@ -50,6 +50,54 @@ We can see sshd being used to gain access to the system.
 Answer: **SSH**
 
 ### Question 2: What is the operating system version of the targeted system?
+
+Going back to our directory and seeing its contents, we know that messages can contain information about system related events.
+
+This time, instead of cat, I will use head to only output the first ten lines.
+
+![alt text](messages.jpg)
+
+And there it is! We see the operating system that the targeted system is running.
+
+Answer: **4.2.4-1ubuntu3**
+
+### Question 3: What is the name of the compromised account?
+
+To tackle this question we would need to go back to auth.log.
+
+I used the same command from before, `cat auth.log | grep -i accepted`, but I just wanted to clear up some things on the output, so I used another pipe to chain `awk '{print $1, $2, $9, $11}'`
+
+This only shows the information from those columns, so I narrowed down the output to the month, date, user, and IP address, which I determined were key information.
+
+![alt text](FirstExternalIP.jpg)
+
+Looking at the output, we can see that our first successful authentication from an external IP address was from 76.191.195.140 on the user1 account. We'll keep note of that.
+
+Scrolling down further however, we see some more interesting information.
+
+![alt text](RootExternalIP.jpg)
+
+Here, we can see that our root account was accessed by a private IP on March 29. However, on April 19, we see that the account was accessed by an external IP address of 219.150.161.20.
+
+To determine which account was the compromised one, I used some OSINT to find the geolocation of the two IP addresses in question.
+
+![alt text](SantaRosa.jpg)
+
+![alt text](Shanghai.jpg)
+
+So now we have the locations of the two IP addresses, but I made sure to not make quick judgements and investigate further.
+
+Digging around in different logs, I viewed user.log, where the timezone of the device was set to America/Los Angeles, or Pacfic Standard Time.
+
+![alt text](messages.jpg)
+
+Based on this information, we can finally deduct that the IP address from Shanghai was the more malicious one rather than the IP from Santa Rosa (a part of the same timezone), and that the compromised account was the root account.
+
+Answer: **root**
+
+### Question 4: How many attackers, represented by unique IP addresses, were able to successfully access the system after initial failed attempts?
+
+
 
 
 
