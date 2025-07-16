@@ -173,22 +173,59 @@ We can grep for "accepted" again, but this time, also grep the specific IP addre
 
 ![alt text](lastdate.jpg)
 
-We see that the last login from the attacker was on Apr 19 05:56:05. 
+We see that the last login from the attacker was on Apr 19 05:56:05. Wait. How about the year?
 
+Previously, when we looked at the apache access log, I caught that the last logged event was in 2010. Therefore, the year must be 2010!
 
+![alt text](2010.jpg)
 
+Answer: 04/19/2010 05:56:05 AM
 
+### Question 10: The database showed two warning messages. Please provide the most critical and potentially dangerous one.
 
+Databases can be a part of a background service. Because of this, it might be worth it to check out the daemon log for its information on background services.
 
+We can cat daemon.log and pipe a grep for "warning" to scan for all of the warning logs.
 
+![alt text](sqlwarning.jpg)
 
+From here we see there are two SQL warnings, one being "mysql.user contains 2 root accounts without password!" and the other being "mysqlcheck has found corrupt tables".
 
+In my opinion, the first warning is definitely more critical and potentially dangerous.
 
+Answer: **mysql.user contains 2 root accounts without password!**
 
+### Question 11: Multiple accounts were created on the target system. Which account was created on April 26 at 04:43:15?
+
+In Linux, we can identify users that were created by searching for useradd. Lets do exactly that, the same way we did it on question 7.
+
+![alt text](useradd.jpg)
+
+We can see the account that was added on Apr 26 04:43:15.
+
+Answer: **wind3str0y**
+
+### Question 12: Few attackers were using a proxy to run their scans. What is the corresponding user-agent used by this proxy?
+
+Similar to question 6, we can find information about requests on the apache access log. Lets navigate to the directory and cat the file.
+
+![alt text](useragent.jpg)
+
+We can see that the user agent is located on column 12. From this, we can pipe `awk` to only show the user agents, then pipe `sort` and `uniq` to see the each unique user agent that requested the server. 
+
+![alt text](uniquseragents.jpg)
+
+Here we see somthing weird. Apple, Mozilla, and WordPress is familiar, but pxyscand? I used OSINT again to see what this could be.
+
+![alt text](pxyscand.jpg)
+
+We indeed see that pxyscand is a network proxy scanner!
+
+Answer: **pxyscand/2.1**
 
 ## Conclusion
 
-Coming into this project, my knowledge of EDR and SOAR technologies was largely theoretical, coming from studying for courses and certifications. Actually getting to implement these systems, connect them through APIs, and design a complete workflow from detection to response was both eye-opening and incredibly rewarding. I was able to bridge the gap between abstract concepts and real-world application, and acquire a deeper appreciation for how modern security operations function. This project bolstered my enthusiasm for cybersecurity and desire to keep learning through hands-on experiences, and I definitely will be doing more projects like these. Thank you for reading!
+This lab was my first intensive activity using Linux, and I had the opportunity to apply the commands I learned while self-studying. Although I did have some trouble finding out about commands and their functionalities (scrolling through a lot of man pages), digging into a real, simulated event head-first taught me so much. I became comfortable chaining together different commands that I already knew or discovered during the lab to zero in on critical evidence on logs, and overall benefitted my attention to detail and problem-solving skills tremendously. Now, after finishing the lab, I gained a solid toolkit of additional Linux commands, knowledge about logs and their contents, analysis techniques, and most importantly, a mindset for tenacious investigation and streamlined troubleshooting, which I'm excited to bring to a real cybersecurity environment. More CTFs coming soon!
 
 ## Contact
 
