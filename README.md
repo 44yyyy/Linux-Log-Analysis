@@ -39,9 +39,23 @@ Now we're ready to begin!
 
 ### Question 1: Which service did the attackers use to gain access to the system?
 
+When dealing with attackers gaining access, it is most likely that they used valid credentials to bypass authentication. 
+
+We can cat the auth.log file, and also we can pipe it with a grep to search for the word "accepted" to try to seek out successful authentications.
+
+![alt text](authlog.jpg)
+
+We can see sshd being used to gain access to the system.
+
+Answer: **SSH**
+
+### Question 2: What is the operating system version of the targeted system?
 
 
-### Conclusion
+
+
+
+## Conclusion
 
 Coming into this project, my knowledge of EDR and SOAR technologies was largely theoretical, coming from studying for courses and certifications. Actually getting to implement these systems, connect them through APIs, and design a complete workflow from detection to response was both eye-opening and incredibly rewarding. I was able to bridge the gap between abstract concepts and real-world application, and acquire a deeper appreciation for how modern security operations function. This project bolstered my enthusiasm for cybersecurity and desire to keep learning through hands-on experiences, and I definitely will be doing more projects like these. Thank you for reading!
 
